@@ -126,3 +126,5 @@ dmypy.json
 # git packages
 src/
 
+# backups
+backups/
