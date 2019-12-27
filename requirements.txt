@@ -2,6 +2,6 @@ certifi==2019.11.28
 chardet==3.0.4
 idna==2.8
 python-dotenv==0.10.3
--e git+https://github.com/SamLubbers/rebel_management_utilities#egg=rebel_management_utilities
+-e git+https://github.com/xrnl/rebel_management_utilities#egg=rebel_management_utilities
 requests==2.22.0
 urllib3==1.25.7
