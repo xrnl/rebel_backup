@@ -11,7 +11,7 @@ Python 3
 Clone or download repository onto local computer.
 
 ```bash
-git clone https://github.com/SamLubbers/rebel_backup.git
+git clone https://github.com/xrnl/rebel_backup.git
 ```
 
 
