@@ -48,7 +48,7 @@ The public key can be shared but the private key must not be disclosed!
 
 To decrypt a file use the decrypt script.
 ```bash
-./decrypt_file.py <encryption_key> <path_to_file>
+./decrypt_file.py <private_key_file_path> <backup_archive_path>
 ```
 
 # Managing the keys
