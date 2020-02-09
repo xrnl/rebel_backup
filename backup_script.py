@@ -14,7 +14,8 @@ from cryptography.fernet import Fernet
 from zipfile import ZipFile
 
 def encrypt_data(data, asymmetric_public_key):
-    """
+    """ The data is encrypted using a symmetric key that will be encrypted by the assymetric public key.
+
     :param key: The public key used to encrypt the symmetric key
     :param data: Data that should be encrypted
     :type data: str
@@ -114,10 +115,7 @@ def load_api_key():
     return key
 
 def load_data(api_key):
-    #data = {'members': get_all_members(api_key)}
-
-    with open("backups/backup_rebels_07-02-2020_18:51:16.json", "r") as file:
-        data = file.read()
+    data = {'members': get_all_members(api_key)}
     return json.dumps(data)
 
 
