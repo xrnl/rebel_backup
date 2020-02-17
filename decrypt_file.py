@@ -13,7 +13,6 @@ if __name__ == '__main__':
         print("Please specify the path to the encryption key file and the path to the data zip file")
         exit(1)
 
-    private_key = ""
     with open(sys.argv[1], "rb") as private_key_file:
         private_key = serialization.load_pem_private_key(
             private_key_file.read(),
@@ -25,8 +24,6 @@ if __name__ == '__main__':
     archive = zipfile.ZipFile(sys.argv[2], 'r')
     try:
         archive_content_name_list = archive.namelist()
-        symmetric_key_file = ''
-        data_file_encrypted = ''
         for name in archive_content_name_list:
             if name.endswith('key'):
                 symmetric_key_file = name

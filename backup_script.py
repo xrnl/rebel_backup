@@ -13,10 +13,10 @@ from rebel_management_utilities import get_all_members
 from cryptography.fernet import Fernet
 from zipfile import ZipFile
 
+
 def encrypt_data(data, asymmetric_public_key):
     """ The data is encrypted using a symmetric key that will be encrypted by the assymetric public key.
 
-    :param key: The public key used to encrypt the symmetric key
     :param data: Data that should be encrypted
     :type data: str
     :return: a dict containing the symmetric key encrypted and the data encrypted
@@ -38,25 +38,28 @@ def encrypt_data(data, asymmetric_public_key):
     return {"key": encrypted_symmetric_key, "data": encrypted_data}
 
 
-
-
 def write_to_file_raw(data):
     """ Write string data to file
-
-    :param data:
-    :return:
     """
 
-    current_date_str = datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
 
-    backup_dir = 'backups'
-    if not os.path.exists(backup_dir):
-        os.makedirs(backup_dir)
-    file_path = path.join(backup_dir, f'backup_rebels_{current_date_str}.json')
+
+    file_path = create_backup_path() + "json"
 
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(data)
         f.close()
+
+def create_backup_path():
+    """ Creates the directory for the backups
+
+    :return: the timestampt file
+    """
+    current_date_str = datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
+    backup_dir = 'backups'
+    if not os.path.exists(backup_dir):
+        os.makedirs(backup_dir)
+    return path.join(backup_dir, f'backup_rebels_{current_date_str}.')
 
 
 def write_to_file_encrypted(data):
@@ -64,18 +67,10 @@ def write_to_file_encrypted(data):
 
     :param data: Contains the symmetric key and the data
     :type data: dict
-    :param is_encrypted: if true writes a binary file
-    :type bool
     :return:
     """
 
-    current_date_str = datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
-
-    backup_dir = 'backups'
-    if not os.path.exists(backup_dir):
-        os.makedirs(backup_dir)
-
-    file_path = path.join(backup_dir, f'backup_rebels_{current_date_str}.')
+    file_path = create_backup_path()
     data_file_path = file_path + "enc"
     key_file_path = file_path + "key"
     zip_file_path = file_path + "zip"
@@ -116,7 +111,7 @@ def load_api_key():
 
 def load_data(api_key):
     data = {'members': get_all_members(api_key)}
-    return json.dumps(data)
+    return json.dumps(data, ensure_ascii=False, indent=4)
 
 
 if __name__ == '__main__':
