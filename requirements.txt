@@ -5,3 +5,4 @@ python-dotenv==0.10.3
 -e git+https://github.com/xrnl/rebel_management_utilities#egg=rebel_management_utilities
 requests==2.22.0
 urllib3==1.25.7
+cryptography==2.8
