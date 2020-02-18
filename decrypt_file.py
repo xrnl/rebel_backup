@@ -48,7 +48,7 @@ if __name__ == '__main__':
         data = data.decode("utf8")
 
         current_date_str = datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
-        with open(f'backup_rebels_decrypt_{current_date_str}.json', 'w', encoding='utf-8') as output:
+        with open('backup_rebels_decrypt_' + current_date_str + '.json', 'w', encoding='utf-8') as output:
             output.write(data)
 
     finally:

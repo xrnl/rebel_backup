@@ -59,7 +59,7 @@ def create_backup_path():
     backup_dir = 'backups'
     if not os.path.exists(backup_dir):
         os.makedirs(backup_dir)
-    return path.join(backup_dir, f'backup_rebels_{current_date_str}.')
+    return path.join(backup_dir, 'backup_rebels_' + current_date_str + '.')
 
 
 def write_to_file_encrypted(data):

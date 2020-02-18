@@ -1,8 +1,15 @@
-certifi==2019.11.28
+certifi==2018.8.24
+cffi==1.14.0
 chardet==3.0.4
-idna==2.8
-python-dotenv==0.10.3
--e git+https://github.com/xrnl/rebel_management_utilities#egg=rebel_management_utilities
-requests==2.22.0
-urllib3==1.25.7
 cryptography==2.8
+idna==2.8
+numpy==1.18.1
+pandas==0.25.3
+pycparser==2.19
+python-dateutil==2.8.1
+python-dotenv==0.10.3
+pytz==2019.3
+-e git+https://github.com/xrnl/rebel_management_utilities@b6fac258ca0bde7b5e6c79157f2e763f7cc8f5f9#egg=rebel_management_utilities
+requests==2.22.0
+six==1.14.0
+urllib3==1.25.8
